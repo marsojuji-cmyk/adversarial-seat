@@ -1,5 +1,7 @@
 # The Adversarial Seat — a standing red-team method for agent-built work
 
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 **Status:** Published 2026-09-27 (author's tap) · https://github.com/marcusrichards-dev/adversarial-seat
 **Standard:** Heilmeier Catechism — answered inside this note
 **Worked example:** `ADVERSARIAL-REVIEW.md` in this repo — the method exercised against IntentSpec v0.1 (canonical original: [intent-spec](https://github.com/marcusrichards-dev/intent-spec))
