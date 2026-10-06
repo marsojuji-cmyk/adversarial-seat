@@ -1,4 +1,4 @@
-<!-- Worked example — the adversarial seat exercised. Canonical original: https://github.com/marcusrichards-dev/intent-spec/blob/main/ADVERSARIAL-REVIEW.md -->
+<!-- Worked example — the adversarial seat exercised. Canonical original: https://github.com/marsojuji-cmyk/intent-spec/blob/main/ADVERSARIAL-REVIEW.md -->
 
 # Adversarial review — the four council questions (§8), answered in writing
 
