@@ -1,5 +1,7 @@
 # The Adversarial Seat — a standing red-team method for agent-built work
 
+**No adversary, no promotion.** A dedicated adversarial lane inside a multi-agent workflow whose standing job is to kill the idea under review — chartered in writing, triggered mechanically rather than at the author's discretion, and required to produce written conditional verdicts before anything promotes. The attacker does not advise. It prosecutes.
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 **Status:** Published 2026-09-27 (author's tap) · https://github.com/marcusrichards-dev/adversarial-seat
