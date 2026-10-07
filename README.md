@@ -1,18 +1,49 @@
-# The Adversarial Seat — a standing red-team method for agent-built work
+# The Adversarial Seat
 
-**No adversary, no promotion.** A dedicated adversarial lane inside a multi-agent workflow whose standing job is to kill the idea under review — chartered in writing, triggered mechanically rather than at the author's discretion, and required to produce written conditional verdicts before anything promotes. The attacker does not advise. It prosecutes.
+**Charters an adversary that must change or kill agent-built work before it ships, with a worked example against IntentSpec v0.1.**
 
-
+[![Claims integrity](https://github.com/marsojuji-cmyk/adversarial-seat/actions/workflows/claims.yml/badge.svg)](https://github.com/marsojuji-cmyk/adversarial-seat/actions/workflows/claims.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-**Status:** Published 2026-09-27 (author's tap) · https://github.com/marsojuji-cmyk/adversarial-seat
-**Standard:** Heilmeier Catechism — answered inside this note
-**Worked example:** `ADVERSARIAL-REVIEW.md` in this repo — the method exercised against IntentSpec v0.1 (canonical original: [intent-spec](https://github.com/marsojuji-cmyk/intent-spec))
 
----
+**No adversary, no promotion.** This is a standing red-team **method** for multi-agent workflows, written as a technical note answered against the Heilmeier catechism. The repo contains the method and one worked review. It has no code: the trigger and the lanes live in the operator's workflow, not here.
+
+## What the method requires
+
+1. **A separate seat with a written charter.** The adversary wins only by changing or killing the artifact. A review that changes nothing is scored as a failed review, not a passing artifact.
+2. **A mechanical trigger.** Review starts on a checklist condition, not when the author feels ready. The author cannot waive it.
+3. **Written conditional verdicts.** Every charge ends as *killed*, *survives conditionally* (the conditions become artifact changes), or *tripwire set* (with a named re-arm condition).
+4. **Corrections ship with the work.** The review document is published alongside the artifact.
+
+These are requirements on the people and agents running the method. Nothing in this repository enforces them.
+
+## Use it
+
+1. Write the adversary's charter: its win condition and what counts as a failed review.
+2. Define the trigger: the checklist condition that dispatches the adversary before consequential work.
+3. Run the review. Record each charge and its verdict in an `ADVERSARIAL-REVIEW.md` beside the artifact.
+4. Apply the survival conditions to the artifact, and publish both.
+
+Check this README's links and paths the way CI does:
+
+```bash
+git clone https://github.com/marsojuji-cmyk/adversarial-seat && cd adversarial-seat
+python3 scripts/check_claims.py
+```
+
+## How it fails
+
+- **Shared estate.** The adversary runs inside the same operator's machinery, so verdicts are *attacked, not independently verified* until the blind two-operator test runs. It hasn't yet.
+- **It can kill good ideas.** The method optimizes for finding flaws. A human gate holds execution.
+- **Theater.** If consecutive reviews stop landing charges, the seat is decoration. §8 retires it on that condition.
+
+## Evidence
+
+- **Worked example:** [`ADVERSARIAL-REVIEW.md`](ADVERSARIAL-REVIEW.md). It filed four charges against IntentSpec v0.1, which produced two artifact modifications, one tripwire and one named unknown. The fixes are visible in [intent-spec](https://github.com/marsojuji-cmyk/intent-spec)'s schema (`receipt.handoff_id`, advisory-only routing, string-only `route.reason`) and its revision history.
+- **CI:** `scripts/check_claims.py` runs on every push. It verifies links, paths and secret-shaped strings, not prose truth.
 
 ## 1. What it is
 
-A dedicated adversarial lane inside a multi-agent workflow whose standing job is to kill the idea under review — chartered in writing, triggered mechanically rather than at the author's discretion, and required to produce written conditional verdicts before anything promotes. The attacker does not advise. It prosecutes.
+A dedicated adversarial lane inside a multi-agent workflow whose standing job is to kill the idea under review. It is chartered in writing, triggered mechanically rather than at the author's discretion, and required to produce written conditional verdicts before anything promotes. The attacker does not advise. It prosecutes.
 
 ## 2. How review is done today, and why that fails
 
@@ -40,7 +71,7 @@ The hiring-relevant property: publishing your attacker's notes is a claim agains
 
 ## 5. Exercised evidence
 
-**IntentSpec v0.1** (worked example: `../01-intent-spec/ADVERSARIAL-REVIEW.md`). Four charges filed:
+**IntentSpec v0.1** (worked example: [`ADVERSARIAL-REVIEW.md`](ADVERSARIAL-REVIEW.md), canonical copy in [intent-spec](https://github.com/marsojuji-cmyk/intent-spec)). Four charges filed:
 
 1. *The IR smuggles a hidden second decision point* — survived conditionally. Two schema rules written in (advisory-only routing, no-scores on the reason field). The concession is recorded: judgment still happens; it is now recorded and challengeable instead of hidden.
 2. *The superset-of-handoff claim* — did not fully hold. One fix applied: `receipt.handoff_id` added with an explicit id-mapping rule. The claim now holds under the written rule.
@@ -49,7 +80,7 @@ The hiring-relevant property: publishing your attacker's notes is a claim agains
 
 Net: two modifications made, one tripwire set, one load-bearing unknown named in writing. That is a review that earned its keep.
 
-**The pattern across the estate.** The same method produced two recorded self-corrections in the Decision Algebra work (including a sensitivity analysis showing 4 of 12 scenarios reorder the top three options — uncertainty demonstrated, not hidden) and two retractions in the Portfolio Pipeline's own blueprint. The corrections are the credential; a method that never retracts is a method that never looked.
+**The pattern across the estate.** The same method produced two recorded self-corrections in the Decision Algebra work (a private repository, so not publicly checkable) (including a sensitivity analysis showing 4 of 12 scenarios reorder the top three options — uncertainty demonstrated, not hidden) and two retractions in the Portfolio Pipeline's own blueprint (also not public). The corrections are the credential; a method that never retracts is a method that never looked.
 
 ## 6. Risks — first, as doctrine requires
 
@@ -80,4 +111,10 @@ This note is subject to its own standard. The adversarial seat is falsified — 
 | Milestones / kill | M1 — one review with landed charges (done: intent-spec) · M2 — blind two-operator test run · Kill — a run of reviews with zero charges |
 | Falsifier | Consecutive chargeless reviews retire the seat |
 
-*Suggested surface: technical note (this document, refined) + the intent-spec adversarial review as the worked example. No new code required — the evidence already exists.*
+## Status
+
+Published 2026-09-27. M1 is done (one review with landed charges: intent-spec). M2, the blind two-operator test, has not been run.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
